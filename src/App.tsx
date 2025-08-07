@@ -3,7 +3,7 @@ import Dashboard from './pages/dashboard';
 import Layout from './components/layout';
 import Header from './components/layout/header';
 import Sidebar from './components/layout/sidebar';
-import Footer from './components/layout/footer';
+// import Footer from './components/layout/footer';
 
 import './styles/scss/style.scss';
 
@@ -12,10 +12,10 @@ function App() {
     <Layout>
       <Sidebar />
 
-      <div>
+      <div className='u-flex u-flex-col'>
         <Header />
         <Dashboard />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </Layout>
   );
