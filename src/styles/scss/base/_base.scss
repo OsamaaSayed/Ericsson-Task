@@ -1,0 +1,15 @@
+@use '../abstracts' as a;
+
+html {
+  font-size: 62.5%; // 1rem = 10px
+}
+
+body {
+  box-sizing: border-box;
+  background-color: a.$color-background;
+}
+
+::selection {
+  background-color: a.$color-primary-light;
+  color: a.$color-white;
+}

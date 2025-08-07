@@ -1,0 +1,85 @@
+@use '../abstracts' as a;
+
+.u-container {
+  @include a.for-size(phone-only) {
+    padding-inline: 0.8rem;
+  }
+
+  @include a.for-size(tablet-portrait-up) {
+    padding-inline: 0.8rem;
+  }
+
+  @include a.for-size(tablet-landscape-up) {
+    padding-inline: 1.6rem;
+  }
+
+  @include a.for-size(desktop-up) {
+    padding-inline: 2.4rem;
+  }
+}
+
+.u-text-center {
+  text-align: center;
+}
+
+.u-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.u-mx-auto {
+  margin-inline: auto;
+}
+
+.u-min-h-screen {
+  min-height: 100vh;
+}
+
+.u-flex {
+  display: flex;
+}
+
+.u-flex-col {
+  flex-direction: column;
+}
+
+.u-flex-row {
+  flex-direction: row;
+}
+
+.u-justify-center {
+  justify-content: center;
+}
+
+.u-justify-between {
+  justify-content: space-between;
+}
+
+.u-items-center {
+  align-items: center;
+}
+
+.u-h-full {
+  height: 100%;
+}
+
+.u-gap-xs {
+  gap: 0.4rem;
+}
+
+.u-gap-sm {
+  gap: 0.8rem;
+}
+
+.u-gap-md {
+  gap: 1.6rem;
+}
+
+.u-gap-lg {
+  gap: 2.4rem;
+}
+
+.u-gap-xl {
+  gap: 3.2rem;
+}
