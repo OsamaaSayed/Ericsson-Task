@@ -44,10 +44,6 @@ p {
 }
 
 a {
-  color: a.$color-primary;
   text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
+  color: a.$color-black;
 }

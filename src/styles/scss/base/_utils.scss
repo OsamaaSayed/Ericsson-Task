@@ -93,13 +93,21 @@
 }
 
 .u-border-rounded-sm {
-  border-radius: 0.8rem;
+  border-radius: 0.6rem;
 }
 
 .u-border-rounded-md {
-  border-radius: 0.12rem;
+  border-radius: 1rem;
 }
 
 .u-border-rounded-lg {
   border-radius: 1.6rem;
+}
+
+.u-border-r {
+  border-right: 1px solid a.$color-border;
+}
+
+.u-border-b {
+  border-bottom: 1px solid a.$color-border;
 }
