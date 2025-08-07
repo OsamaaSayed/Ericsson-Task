@@ -1,0 +1,16 @@
+@use '../abstracts' as a;
+
+.summary-card {
+  padding: 2.4rem;
+
+  &__title {
+    font-size: 3rem;
+    margin-bottom: 0;
+  }
+
+  &__description {
+    font-size: 1.6rem;
+    color: a.$color-text-gray;
+    margin-bottom: 0;
+  }
+}
