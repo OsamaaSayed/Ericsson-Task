@@ -1,0 +1,31 @@
+@use '../abstracts' as a;
+
+.filter {
+  padding: 2.4rem 0;
+
+  &__form {
+    display: flex;
+    gap: 1.6rem;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 0.8rem;
+
+    label {
+      font-weight: 500;
+      font-size: 1.4rem;
+    }
+  }
+
+  &__input,
+  &__select {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    border: 1px solid a.$color-border;
+    border-radius: 0.4rem;
+    font-size: 1.4rem;
+  }
+}

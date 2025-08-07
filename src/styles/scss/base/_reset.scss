@@ -1,3 +1,5 @@
+@use '../abstracts' as a;
+
 *,
 *::before,
 *::after {
@@ -19,6 +21,12 @@ input,
 select,
 textarea {
   font-family: inherit;
+}
+
+input:focus-visible,
+select:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px a.$color-box-shadow;
 }
 
 button {
