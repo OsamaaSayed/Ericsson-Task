@@ -83,3 +83,23 @@
 .u-gap-xl {
   gap: 3.2rem;
 }
+
+.u-py-4 {
+  padding-block: 4rem;
+}
+
+.u-border {
+  border: 1px solid a.$color-border;
+}
+
+.u-border-rounded-sm {
+  border-radius: 0.8rem;
+}
+
+.u-border-rounded-md {
+  border-radius: 0.12rem;
+}
+
+.u-border-rounded-lg {
+  border-radius: 1.6rem;
+}
