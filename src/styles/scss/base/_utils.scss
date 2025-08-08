@@ -26,6 +26,18 @@
   cursor: pointer;
 }
 
+.u-overflow-hidden {
+  overflow: hidden;
+}
+
+.u-overflow-x-auto {
+  overflow-x: auto;
+}
+
+.u-w-full {
+  width: 100%;
+}
+
 .u-truncate {
   white-space: nowrap;
   overflow: hidden;

@@ -1,0 +1,26 @@
+@use '../abstracts' as a;
+
+.table {
+  border-collapse: collapse;
+  font-size: 1.4rem;
+
+  th,
+  td {
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid a.$color-border;
+  }
+
+  th {
+    background-color: a.$color-background-sidebar;
+    font-weight: bold;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tr:hover {
+    background-color: a.$color-background-hover;
+  }
+}
