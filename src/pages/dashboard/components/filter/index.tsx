@@ -1,3 +1,7 @@
+import CircleXIcon from '../../../../components/shared/icons/circle-x';
+import FilterIcon from '../../../../components/shared/icons/filter';
+import SearchIcon from '../../../../components/shared/icons/search';
+
 interface FilterProps {
   filters: {
     searchTerm: string;
@@ -18,19 +22,25 @@ const Filter = ({ filters, onFilterChange, onClearFilters }: FilterProps) => {
         <div className='filter__group u-flex-1'>
           <label htmlFor='search'>Search Towers</label>
 
-          <input
-            id='search'
-            name='searchTerm'
-            type='text'
-            placeholder='Search by tower name...'
-            className='filter__input'
-            value={filters.searchTerm}
-            onChange={(e) => onFilterChange(e)}
-          />
+          <div className='u-relative'>
+            <input
+              id='search'
+              name='searchTerm'
+              type='text'
+              placeholder='Search by tower name...'
+              className='filter__input'
+              value={filters.searchTerm}
+              onChange={(e) => onFilterChange(e)}
+            />
+            <SearchIcon className='u-absolute u-top-1/2 u-left-6' />
+          </div>
         </div>
 
         <div className='filter__group'>
-          <label htmlFor='city'>Filter By City</label>
+          <div className='u-flex u-items-center u-gap-sm'>
+            <FilterIcon />
+            <label htmlFor='city'>Filter By City</label>
+          </div>
 
           <select
             id='city'
@@ -41,14 +51,17 @@ const Filter = ({ filters, onFilterChange, onClearFilters }: FilterProps) => {
           >
             <option value='all'>All</option>
             <option value='cairo'>Cairo</option>
-            <option value='alex'>Alex</option>
+            <option value='alexandria'>Alexandria</option>
             <option value='hurghada'>Hurghada</option>
             <option value='luxor'>Luxor</option>
           </select>
         </div>
 
         <div className='filter__group'>
-          <label htmlFor='network'>Filter By Network</label>
+          <div className='u-flex u-items-center u-gap-sm'>
+            <FilterIcon />
+            <label htmlFor='network'>Filter By Network</label>
+          </div>
 
           <select
             id='network'
@@ -64,7 +77,10 @@ const Filter = ({ filters, onFilterChange, onClearFilters }: FilterProps) => {
         </div>
 
         <div className='filter__group'>
-          <label htmlFor='status'>Filter By Status</label>
+          <div className='u-flex u-items-center u-gap-sm'>
+            <FilterIcon />
+            <label htmlFor='status'>Filter By Status</label>
+          </div>
 
           <select
             id='status'
@@ -81,9 +97,10 @@ const Filter = ({ filters, onFilterChange, onClearFilters }: FilterProps) => {
 
         <button
           type='button'
-          className='filter__clear'
+          className='filter__clear u-flex u-items-center u-gap-xs'
           onClick={onClearFilters}
         >
+          <CircleXIcon />
           Clear Filters
         </button>
       </form>

@@ -1,5 +1,5 @@
-import Logo from './components/logo';
-import DashboardIcon from './components/dashboard-icon';
+import Logo from '../../shared/icons/logo';
+import DashboardIcon from '../../shared/icons/dashboard';
 
 const Sidebar = () => {
   return (

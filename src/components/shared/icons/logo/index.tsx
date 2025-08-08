@@ -1,12 +1,15 @@
-const Logo = () => {
+interface LogoProps {
+  className?: string;
+}
+
+const Logo = ({ className }: LogoProps) => {
   return (
     <svg
       version='1.1'
       x='0px'
       y='0px'
       viewBox='0 0 1500 304'
-      //   style='enable-background:new 0 0 1500 304;'
-      //   xml:space='preserve'
+      className={className}
     >
       <g>
         <polygon points='3,94.7 124,94.7 124,127.6 45.8,127.6 45.8,156.2 120.8,156.2 120.8,190.4 45.8,190.4 45.8,219.9  125.3,219.9 125.3,253.1 3,253.1'></polygon>

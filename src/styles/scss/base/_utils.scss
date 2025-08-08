@@ -38,6 +38,27 @@
   width: 100%;
 }
 
+.u-h-full {
+  height: 100%;
+}
+
+.u-relative {
+  position: relative;
+}
+
+.u-absolute {
+  position: absolute;
+}
+
+.u-top-1\/2 {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.u-left-6 {
+  left: 0.6rem;
+}
+
 .u-truncate {
   white-space: nowrap;
   overflow: hidden;
@@ -78,10 +99,6 @@
 
 .u-items-center {
   align-items: center;
-}
-
-.u-h-full {
-  height: 100%;
 }
 
 .u-gap-xs {

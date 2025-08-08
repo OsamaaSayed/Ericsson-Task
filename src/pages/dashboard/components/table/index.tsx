@@ -8,13 +8,15 @@ interface TableProps {
   cellTowers: CellTower[];
 }
 
+const initialState = {
+  searchTerm: '',
+  city: 'all',
+  network: 'all',
+  status: 'all',
+};
+
 const Table = ({ cellTowers }: TableProps) => {
-  const [filters, setFilters] = useState({
-    searchTerm: '',
-    city: 'all',
-    network: 'all',
-    status: 'all',
-  });
+  const [filters, setFilters] = useState(initialState);
 
   const filteredTowers = cellTowers.filter((tower) => {
     const matchesSearchTerm = tower.name
@@ -48,12 +50,7 @@ const Table = ({ cellTowers }: TableProps) => {
   };
 
   const clearFilters = () => {
-    setFilters({
-      searchTerm: '',
-      city: 'all',
-      network: 'all',
-      status: 'all',
-    });
+    setFilters(initialState);
   };
 
   return (
@@ -69,6 +66,7 @@ const Table = ({ cellTowers }: TableProps) => {
           <table className='table u-w-full'>
             <thead>
               <tr>
+                <th>#</th>
                 <th>Name</th>
                 <th>City</th>
                 <th>Network Type</th>
@@ -78,8 +76,10 @@ const Table = ({ cellTowers }: TableProps) => {
             </thead>
 
             <tbody>
-              {filteredTowers.map((tower) => (
+              {filteredTowers.map((tower, index) => (
                 <tr key={tower.id}>
+                  <td>{index + 1}</td>
+
                   <td>{tower.name}</td>
                   <td>{tower.city}</td>
 
