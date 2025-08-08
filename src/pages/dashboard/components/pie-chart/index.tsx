@@ -1,28 +1,17 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
 
 import ChartSkeleton from '../chart-skeleton';
-
-import { sleep } from '../../../../utils';
 
 import type { CellTower } from '../../../../types';
 
 interface PieChartProps {
   cellTowers: CellTower[];
+  isLoading: boolean;
 }
 
-const PieChart = ({ cellTowers }: PieChartProps) => {
+const PieChart = ({ cellTowers, isLoading }: PieChartProps) => {
   const svgRef = useRef<SVGSVGElement>(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const loadData = async () => {
-      await sleep(3000);
-      setIsLoading(false);
-    };
-
-    loadData();
-  }, []);
 
   useEffect(() => {
     if (!svgRef.current || !cellTowers.length || isLoading) return;
@@ -37,12 +26,14 @@ const PieChart = ({ cellTowers }: PieChartProps) => {
       count,
     }));
 
-    const width = 450;
-    const height = 300;
+    const width = 350;
+    const height = 200;
     const radius = Math.min(width, height) / 2 - 20;
 
     const svg = d3
       .select(svgRef.current)
+      .attr('width', width)
+      .attr('height', height)
       .attr('viewBox', [0, 0, width, height]);
 
     svg.selectAll('*').remove();

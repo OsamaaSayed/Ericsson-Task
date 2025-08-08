@@ -1,22 +1,17 @@
-import { useState, useEffect } from 'react';
-
 import SummaryCard from '../summary-card';
 import SummaryCardSkeleton from '../summary-card-skeleton';
 import TowerIcon from '../../../../components/shared/icons/tower';
 import ActiveTowerIcon from '../../../../components/shared/icons/active-tower';
 import SignalIcon from '../../../../components/shared/icons/signal';
 
-import { sleep } from '../../../../utils';
-
 import type { CellTower } from '../../../../types';
 
 interface SummaryCardListProps {
   cellTowers: CellTower[];
+  isLoading: boolean;
 }
 
-const SummaryCardList = ({ cellTowers }: SummaryCardListProps) => {
-  const [isLoading, setIsLoading] = useState(true);
-
+const SummaryCardList = ({ cellTowers, isLoading }: SummaryCardListProps) => {
   const totalTowers = cellTowers.length;
   const activeTowers = cellTowers.filter(
     (tower) => tower.status === 'Active',
@@ -24,15 +19,6 @@ const SummaryCardList = ({ cellTowers }: SummaryCardListProps) => {
   const averageSignal =
     cellTowers.reduce((acc, tower) => acc + tower.signalStrength, 0) /
     totalTowers;
-
-  useEffect(() => {
-    const loadData = async () => {
-      await sleep(3000);
-      setIsLoading(false);
-    };
-
-    loadData();
-  }, []);
 
   if (isLoading) {
     return (

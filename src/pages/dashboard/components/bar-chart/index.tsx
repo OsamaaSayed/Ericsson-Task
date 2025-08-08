@@ -1,28 +1,17 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
 
 import ChartSkeleton from '../chart-skeleton';
-
-import { sleep } from '../../../../utils';
 
 import type { CellTower } from '../../../../types';
 
 interface BarChartProps {
   cellTowers: CellTower[];
+  isLoading: boolean;
 }
 
-const BarChart = ({ cellTowers }: BarChartProps) => {
+const BarChart = ({ cellTowers, isLoading }: BarChartProps) => {
   const svgRef = useRef<SVGSVGElement>(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const loadData = async () => {
-      await sleep(3000);
-      setIsLoading(false);
-    };
-
-    loadData();
-  }, []);
 
   useEffect(() => {
     if (!svgRef.current || !cellTowers.length || isLoading) return;
@@ -34,8 +23,8 @@ const BarChart = ({ cellTowers }: BarChartProps) => {
     );
     const data = Array.from(towersByCity, ([city, count]) => ({ city, count }));
 
-    const width = 450;
-    const height = 300;
+    const width = 350;
+    const height = 200;
     const marginTop = 20;
     const marginRight = 20;
     const marginBottom = 30;
@@ -43,6 +32,8 @@ const BarChart = ({ cellTowers }: BarChartProps) => {
 
     const svg = d3
       .select(svgRef.current)
+      .attr('width', width)
+      .attr('height', height)
       .attr('viewBox', [0, 0, width, height]);
 
     svg.selectAll('*').remove();
@@ -81,7 +72,6 @@ const BarChart = ({ cellTowers }: BarChartProps) => {
       .attr('y', (d) => yScale(d.count))
       .attr('height', (d) => yScale(0) - yScale(d.count))
       .attr('width', xScale.bandwidth())
-      .attr('rx', 4);
   }, [cellTowers, isLoading]);
 
   if (isLoading) {
