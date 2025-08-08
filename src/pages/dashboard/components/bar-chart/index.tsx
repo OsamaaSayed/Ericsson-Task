@@ -84,7 +84,7 @@ const BarChart = ({ cellTowers }: BarChartProps) => {
       .attr('rx', 4);
   }, [cellTowers, isLoading]);
 
-  if (!isLoading) {
+  if (isLoading) {
     return <ChartSkeleton />;
   }
 

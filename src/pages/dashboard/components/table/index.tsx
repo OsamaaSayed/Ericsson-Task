@@ -1,6 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Filter from '../filter';
+import TableSkeleton from '../table-skeleton';
+
+import { sleep } from '../../../../utils';
 
 import type { CellTower } from '../../../../types';
 
@@ -17,6 +20,7 @@ const initialState = {
 
 const Table = ({ cellTowers }: TableProps) => {
   const [filters, setFilters] = useState(initialState);
+  const [isLoading, setIsLoading] = useState(true);
 
   const filteredTowers = cellTowers.filter((tower) => {
     const matchesSearchTerm = tower.name
@@ -52,6 +56,28 @@ const Table = ({ cellTowers }: TableProps) => {
   const clearFilters = () => {
     setFilters(initialState);
   };
+
+  useEffect(() => {
+    const loadData = async () => {
+      await sleep(3000);
+      setIsLoading(false);
+    };
+
+    loadData();
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className='u-flex u-flex-col u-gap-lg'>
+        <Filter
+          filters={filters}
+          onFilterChange={handleFilterChange}
+          onClearFilters={clearFilters}
+        />
+        <TableSkeleton />
+      </div>
+    );
+  }
 
   return (
     <div className='u-flex u-flex-col u-gap-lg'>
