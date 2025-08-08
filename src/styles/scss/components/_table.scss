@@ -23,4 +23,49 @@
   tr:hover {
     background-color: a.$color-background-hover;
   }
+
+  &__badge {
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.3rem;
+    color: a.$color-text-gray;
+    letter-spacing: 0.05rem;
+
+    &-active {
+      background-color: a.$color-background-active;
+      color: a.$color-active;
+    }
+
+    &-offline {
+      background-color: a.$color-background-offline;
+      color: a.$color-offline;
+    }
+
+    &-4g {
+      color: a.$color-blue-light;
+    }
+
+    &-5g {
+      color: a.$color-blue;
+    }
+
+    &-signal1 {
+      color: a.$color-offline;
+    }
+
+    &-signal2 {
+      color: a.$color-yellow;
+    }
+
+    &-signal3 {
+      color: a.$color-blue-light;
+    }
+
+    &-signal4 {
+      color: a.$color-blue;
+    }
+
+    &-signal5 {
+      color: a.$color-active;
+    }
+  }
 }

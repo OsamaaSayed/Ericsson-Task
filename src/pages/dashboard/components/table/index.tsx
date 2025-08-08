@@ -1,6 +1,12 @@
 import Filter from '../filter';
 
-const Table = () => {
+import type { CellTower } from '../../../../types';
+
+interface TableProps {
+  cellTowers: CellTower[];
+}
+
+const Table = ({ cellTowers }: TableProps) => {
   return (
     <div className='u-flex u-flex-col u-gap-lg'>
       <Filter />
@@ -10,30 +16,43 @@ const Table = () => {
           <table className='table u-w-full'>
             <thead>
               <tr>
-                <th>Column 1</th>
-                <th>Column 2</th>
-                <th>Column 3</th>
-                <th>Column 4</th>
-                <th>Column 5</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Network Type</th>
+                <th>Status</th>
+                <th>Signal Strength</th>
               </tr>
             </thead>
 
             <tbody>
-              <tr>
-                <td>Data 1</td>
-                <td>Data 2</td>
-                <td>Data 3</td>
-                <td>Data 4</td>
-                <td>Data 5</td>
-              </tr>
+              {cellTowers.map((tower) => (
+                <tr key={tower.id}>
+                  <td>{tower.name}</td>
+                  <td>{tower.city}</td>
 
-              <tr>
-                <td>Data 1</td>
-                <td>Data 2</td>
-                <td>Data 3</td>
-                <td>Data 4</td>
-                <td>Data 5</td>
-              </tr>
+                  <td>
+                    <span
+                      className={`table__badge table__badge-${tower.networkType.toLowerCase()}`}
+                    >
+                      {tower.networkType}
+                    </span>
+                  </td>
+                  <td>
+                    <span
+                      className={`table__badge table__badge-${tower.status.toLowerCase()}`}
+                    >
+                      {tower.status}
+                    </span>
+                  </td>
+                  <td>
+                    <span
+                      className={`table__badge table__badge-signal${tower.signalStrength}`}
+                    >
+                      {tower.signalStrength}
+                    </span>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
