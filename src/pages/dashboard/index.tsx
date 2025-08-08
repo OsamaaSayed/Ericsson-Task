@@ -13,7 +13,7 @@ const Dashboard = () => {
 
         <div className='u-flex u-gap-lg'>
           <BarChart cellTowers={cellTowers} />
-          <PieChart />
+          <PieChart cellTowers={cellTowers} />
         </div>
 
         <Table cellTowers={cellTowers} />

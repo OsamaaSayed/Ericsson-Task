@@ -50,13 +50,13 @@ const BarChart = ({ cellTowers }: BarChartProps) => {
     svg
       .append('g')
       .attr('transform', `translate(0,${height - marginBottom})`)
-      .style('font-size', '1.4rem')
+      .style('font-size', '1.2rem')
       .call(d3.axisBottom(xScale));
 
     svg
       .append('g')
       .attr('transform', `translate(${marginLeft},0)`)
-      .style('font-size', '1.4rem')
+      .style('font-size', '1.2rem')
       .call(d3.axisLeft(yScale));
 
     svg
@@ -70,7 +70,6 @@ const BarChart = ({ cellTowers }: BarChartProps) => {
       .attr('y', (d) => yScale(d.count))
       .attr('height', (d) => yScale(0) - yScale(d.count))
       .attr('width', xScale.bandwidth())
-      .attr('rx', 4);
   }, []);
 
   return (
