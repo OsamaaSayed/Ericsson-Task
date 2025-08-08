@@ -24,6 +24,14 @@
     background-color: a.$color-background-hover;
   }
 
+  &__cell-empty {
+    font-size: 1.6rem;
+    text-align: center;
+    font-style: italic;
+    color: a.$color-text-gray;
+    padding-block: 3rem;
+  }
+
   &__badge {
     padding: 0.2rem 0.5rem;
     border-radius: 0.3rem;

@@ -11,7 +11,6 @@
   &__group {
     display: flex;
     flex-direction: column;
-    flex: 1;
     gap: 0.8rem;
 
     label {
@@ -27,5 +26,18 @@
     border: 1px solid a.$color-border;
     border-radius: 0.4rem;
     font-size: 1.4rem;
+  }
+
+  &__clear {
+    padding: 0.4rem 0.8rem;
+    margin-left: 2rem;
+    border: 1px solid a.$color-border;
+    border-radius: 0.4rem;
+    min-height: 3.6rem;
+    align-self: flex-end;
+
+    &:hover {
+      background-color: a.$color-background-hover;
+    }
   }
 }

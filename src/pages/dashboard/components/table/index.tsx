@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import Filter from '../filter';
 
 import type { CellTower } from '../../../../types';
@@ -7,9 +9,60 @@ interface TableProps {
 }
 
 const Table = ({ cellTowers }: TableProps) => {
+  const [filters, setFilters] = useState({
+    searchTerm: '',
+    city: 'all',
+    network: 'all',
+    status: 'all',
+  });
+
+  const filteredTowers = cellTowers.filter((tower) => {
+    const matchesSearchTerm = tower.name
+      .toLowerCase()
+      .includes(filters.searchTerm.toLowerCase());
+
+    const matchesCity =
+      filters.city === 'all' ||
+      tower.city.toLowerCase() === filters.city.toLowerCase();
+
+    const matchesNetwork =
+      filters.network === 'all' ||
+      tower.networkType.toLowerCase() === filters.network.toLowerCase();
+
+    const matchesStatus =
+      filters.status === 'all' ||
+      tower.status.toLowerCase() === filters.status.toLowerCase();
+
+    return matchesSearchTerm && matchesCity && matchesNetwork && matchesStatus;
+  });
+
+  const handleFilterChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+  ) => {
+    const { name, value } = e.target;
+
+    setFilters((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const clearFilters = () => {
+    setFilters({
+      searchTerm: '',
+      city: 'all',
+      network: 'all',
+      status: 'all',
+    });
+  };
+
   return (
     <div className='u-flex u-flex-col u-gap-lg'>
-      <Filter />
+      <Filter
+        filters={filters}
+        onFilterChange={handleFilterChange}
+        onClearFilters={clearFilters}
+      />
 
       <div className='u-overflow-hidden u-border u-border-rounded-sm'>
         <div className='u-overflow-x-auto'>
@@ -25,7 +78,7 @@ const Table = ({ cellTowers }: TableProps) => {
             </thead>
 
             <tbody>
-              {cellTowers.map((tower) => (
+              {filteredTowers.map((tower) => (
                 <tr key={tower.id}>
                   <td>{tower.name}</td>
                   <td>{tower.city}</td>
@@ -55,6 +108,10 @@ const Table = ({ cellTowers }: TableProps) => {
               ))}
             </tbody>
           </table>
+
+          {filteredTowers.length === 0 && (
+            <p className='table__cell-empty'>No towers found</p>
+          )}
         </div>
       </div>
     </div>
