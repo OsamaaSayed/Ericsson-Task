@@ -1,5 +1,9 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import * as d3 from 'd3';
+
+import ChartSkeleton from '../chart-skeleton';
+
+import { sleep } from '../../../../utils';
 
 import type { CellTower } from '../../../../types';
 
@@ -9,9 +13,19 @@ interface BarChartProps {
 
 const BarChart = ({ cellTowers }: BarChartProps) => {
   const svgRef = useRef<SVGSVGElement>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (!svgRef.current || !cellTowers.length) return;
+    const loadData = async () => {
+      await sleep(3000);
+      setIsLoading(false);
+    };
+
+    loadData();
+  }, []);
+
+  useEffect(() => {
+    if (!svgRef.current || !cellTowers.length || isLoading) return;
 
     const towersByCity = d3.rollup(
       cellTowers,
@@ -68,7 +82,11 @@ const BarChart = ({ cellTowers }: BarChartProps) => {
       .attr('height', (d) => yScale(0) - yScale(d.count))
       .attr('width', xScale.bandwidth())
       .attr('rx', 4);
-  }, [cellTowers]);
+  }, [cellTowers, isLoading]);
+
+  if (!isLoading) {
+    return <ChartSkeleton />;
+  }
 
   return (
     <div className='chart u-border u-border-rounded-md u-flex-1 u-box-shadow'>

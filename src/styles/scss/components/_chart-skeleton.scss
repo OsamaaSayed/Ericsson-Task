@@ -1,0 +1,58 @@
+@use '../abstracts' as a;
+
+.chart-skeleton {
+  padding: 2.4rem;
+  
+  &__title {
+    width: 16rem;
+    height: 2.4rem;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 0.4rem;
+    margin-bottom: 2.4rem;
+  }
+  
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  &__chart {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 0.8rem;
+    
+    // Responsive sizing to match chart sizes
+    @include a.for-size(phone-only) {
+      width: 280px;
+      height: 200px;
+    }
+
+    @include a.for-size(tablet-portrait-up) {
+      width: 350px;
+      height: 250px;
+    }
+
+    @include a.for-size(tablet-landscape-up) {
+      width: 400px;
+      height: 280px;
+    }
+
+    @include a.for-size(desktop-up) {
+      width: 450px;
+      height: 300px;
+    }
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}

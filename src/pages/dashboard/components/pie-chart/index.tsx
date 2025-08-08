@@ -1,5 +1,9 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import * as d3 from 'd3';
+
+import ChartSkeleton from '../chart-skeleton';
+
+import { sleep } from '../../../../utils';
 
 import type { CellTower } from '../../../../types';
 
@@ -9,9 +13,19 @@ interface PieChartProps {
 
 const PieChart = ({ cellTowers }: PieChartProps) => {
   const svgRef = useRef<SVGSVGElement>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (!svgRef.current || !cellTowers.length) return;
+    const loadData = async () => {
+      await sleep(3000);
+      setIsLoading(false);
+    };
+
+    loadData();
+  }, []);
+
+  useEffect(() => {
+    if (!svgRef.current || !cellTowers.length || isLoading) return;
 
     const statusCounts = d3.rollup(
       cellTowers,
@@ -86,7 +100,11 @@ const PieChart = ({ cellTowers }: PieChartProps) => {
       .attr('dy', '0.35em')
       .style('font-size', '1.2rem')
       .text((d) => `${d.status} (${d.count})`);
-  }, [cellTowers]);
+  }, [cellTowers, isLoading]);
+
+  if (isLoading) {
+    return <ChartSkeleton />;
+  }
 
   return (
     <div className='chart u-border u-border-rounded-md u-flex-1 u-box-shadow'>

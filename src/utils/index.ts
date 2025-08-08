@@ -1,3 +1,3 @@
-export const testFunction = () => {
-    console.log('This is a test function');
+export const sleep = (ms: number): Promise<void> => {
+    return new Promise(resolve => setTimeout(resolve, ms));
 };
