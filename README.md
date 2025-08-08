@@ -174,6 +174,30 @@ $color-text-gray: #737373;
 @include for-size(desktop-up) { ... }
 ```
 
+## 📊 Data Model
+
+### CellTower Interface
+
+```typescript
+interface CellTower {
+  id: string; // Unique identifier
+  name: string; // Tower name (e.g., "Tower A")
+  city: string; // Location city
+  networkType: '4G' | '5G'; // Network type
+  status: 'Active' | 'Offline'; // Operational status
+  signalStrength: number; // Signal strength (1-5)
+}
+```
+
+### Sample Data
+
+The application includes 12 sample cell towers across 4 Egyptian cities:
+
+- **Cairo**: 4 towers
+- **Alexandria**: 3 towers
+- **Hurghada**: 2 towers
+- **Luxor**: 3 towers
+
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -226,30 +250,6 @@ npm run preview
 npm run lint
 ```
 
-## 📊 Data Model
-
-### CellTower Interface
-
-```typescript
-interface CellTower {
-  id: string; // Unique identifier
-  name: string; // Tower name (e.g., "Tower A")
-  city: string; // Location city
-  networkType: '4G' | '5G'; // Network type
-  status: 'Active' | 'Offline'; // Operational status
-  signalStrength: number; // Signal strength (1-5)
-}
-```
-
-### Sample Data
-
-The application includes 12 sample cell towers across 4 Egyptian cities:
-
-- **Cairo**: 4 towers
-- **Alexandria**: 3 towers
-- **Hurghada**: 2 towers
-- **Luxor**: 3 towers
-
 ## 🤝 Contributing
 
 1. Fork the repository
@@ -257,19 +257,3 @@ The application includes 12 sample cell towers across 4 Egyptian cities:
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
-
-## 📄 License
-
-This project is created for evaluation purposes. Please check with the repository owner for specific licensing terms.
-
-## 🙏 Acknowledgments
-
-- **Ericsson** - For the technical challenge opportunity
-- **React Team** - For the excellent React framework
-- **D3.js Community** - For powerful data visualization tools
-- **Vite Team** - For the fast and efficient build tool
-- **TypeScript Team** - For enhanced developer experience
-
----
-
-**Built with ❤️ for Ericsson Technical Assessment**
