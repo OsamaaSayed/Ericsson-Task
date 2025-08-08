@@ -61,7 +61,7 @@ const Table = ({ cellTowers }: TableProps) => {
         onClearFilters={clearFilters}
       />
 
-      <div className='u-overflow-hidden u-border u-border-rounded-sm'>
+      <div className='u-overflow-hidden u-border u-border-rounded-md'>
         <div className='u-overflow-x-auto'>
           <table className='table u-w-full'>
             <thead>

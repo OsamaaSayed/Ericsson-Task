@@ -1,0 +1,9 @@
+@use '../abstracts' as a;
+
+.chart {
+  padding: 2.4rem;
+
+  &__title {
+    margin-bottom: 2.4rem;
+  }
+}

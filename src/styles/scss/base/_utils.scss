@@ -65,6 +65,10 @@
   text-overflow: ellipsis;
 }
 
+.u-box-shadow {
+  box-shadow: 0 1px 2px 0 a.$color-box-shadow;
+}
+
 .u-mx-auto {
   margin-inline: auto;
 }
@@ -119,6 +123,10 @@
 
 .u-gap-xl {
   gap: 3.2rem;
+}
+
+.u-gap-2xl {
+  gap: 4rem;
 }
 
 .u-py-4 {
