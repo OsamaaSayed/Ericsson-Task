@@ -12,7 +12,7 @@ function App() {
     <Layout>
       <Sidebar />
 
-      <div className='u-flex u-flex-col'>
+      <div className='u-flex u-flex-col u-flex-1 u-overflow-x-auto'>
         <Header />
         <Dashboard />
         {/* <Footer /> */}

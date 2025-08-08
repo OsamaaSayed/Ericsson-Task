@@ -25,12 +25,11 @@ const PieChart = ({ cellTowers }: PieChartProps) => {
 
     const width = 450;
     const height = 300;
-    const radius = Math.min(width, height) / 2 - 20; // Margin for the pie
+    const radius = Math.min(width, height) / 2 - 20;
 
     const svg = d3
       .select(svgRef.current)
-      .attr('width', width)
-      .attr('height', height);
+      .attr('viewBox', [0, 0, width, height]);
 
     svg.selectAll('*').remove();
 
@@ -85,14 +84,15 @@ const PieChart = ({ cellTowers }: PieChartProps) => {
       .attr('x', 24)
       .attr('y', 9)
       .attr('dy', '0.35em')
+      .style('font-size', '1.2rem')
       .text((d) => `${d.status} (${d.count})`);
-  }, []);
+  }, [cellTowers]);
 
   return (
     <div className='chart u-border u-border-rounded-md u-flex-1 u-box-shadow'>
       <h3 className='chart__title'>Status Distribution</h3>
 
-      <div className='u-flex u-justify-center'>
+      <div className='chart__content'>
         <svg ref={svgRef}></svg>
       </div>
     </div>

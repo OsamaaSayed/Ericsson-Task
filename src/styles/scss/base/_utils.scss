@@ -2,15 +2,11 @@
 
 .u-container {
   @include a.for-size(phone-only) {
-    padding-inline: 0.8rem;
+    padding-inline: 1.6rem;
   }
 
   @include a.for-size(tablet-portrait-up) {
-    padding-inline: 0.8rem;
-  }
-
-  @include a.for-size(tablet-landscape-up) {
-    padding-inline: 1.6rem;
+    padding-inline: 2rem;
   }
 
   @include a.for-size(desktop-up) {
@@ -36,6 +32,10 @@
 
 .u-w-full {
   width: 100%;
+}
+
+.u-min-w-30 {
+  min-width: 30rem;
 }
 
 .u-h-full {

@@ -10,5 +10,9 @@
   &__title {
     font-size: 1.6rem;
     margin-bottom: 0;
+
+    @include a.for-size(phone-only) {
+      font-size: 1.4rem;
+    }
   }
 }

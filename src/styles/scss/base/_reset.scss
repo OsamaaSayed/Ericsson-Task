@@ -23,6 +23,12 @@ textarea {
   font-family: inherit;
 }
 
+input:placeholder-shown,
+select:placeholder-shown,
+textarea:placeholder-shown {
+  font-size: 1.2rem;
+}
+
 input:focus-visible,
 select:focus-visible {
   outline: none;

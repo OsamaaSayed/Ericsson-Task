@@ -5,5 +5,25 @@
 
   &__title {
     margin-bottom: 2.4rem;
+
+    @include a.for-size(phone-only) {
+      font-size: 1.4rem;
+      margin-bottom: 1.6rem;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  @include a.for-size(phone-only) {
+    padding: 1.6rem;
   }
 }

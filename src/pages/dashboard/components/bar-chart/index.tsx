@@ -29,10 +29,7 @@ const BarChart = ({ cellTowers }: BarChartProps) => {
 
     const svg = d3
       .select(svgRef.current)
-      .attr('width', width)
-      .attr('height', height)
-      .attr('viewBox', [0, 0, width, height])
-      .attr('style', 'max-width: 100%; height: auto;');
+      .attr('viewBox', [0, 0, width, height]);
 
     svg.selectAll('*').remove();
 
@@ -70,13 +67,14 @@ const BarChart = ({ cellTowers }: BarChartProps) => {
       .attr('y', (d) => yScale(d.count))
       .attr('height', (d) => yScale(0) - yScale(d.count))
       .attr('width', xScale.bandwidth())
-  }, []);
+      .attr('rx', 4);
+  }, [cellTowers]);
 
   return (
     <div className='chart u-border u-border-rounded-md u-flex-1 u-box-shadow'>
       <h3 className='chart__title'>Towers By City</h3>
 
-      <div className='u-flex u-justify-center'>
+      <div className='chart__content'>
         <svg ref={svgRef}></svg>
       </div>
     </div>

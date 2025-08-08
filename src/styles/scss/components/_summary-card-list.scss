@@ -1,5 +1,20 @@
+@use '../abstracts' as a;
+
 .summary-card-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.6rem;
+
+  @include a.for-size(phone-only) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @include a.for-size(tablet-portrait-up) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem;
+  }
+
+  @include a.for-size(tablet-landscape-up ) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.4rem;
+  }
 }

@@ -3,4 +3,15 @@
 .dashboard {
   padding: 2.4rem;
   flex: 1;
+
+  &__charts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    @include a.for-size(tablet-landscape-up) {
+      flex-direction: row;
+      gap: 2.4rem;
+    }
+  }
 }

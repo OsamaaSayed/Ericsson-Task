@@ -11,7 +11,7 @@ const Dashboard = () => {
       <div className='u-flex u-flex-col u-gap-2xl'>
         <SummaryCardList cellTowers={cellTowers} />
 
-        <div className='u-flex u-gap-lg'>
+        <div className='dashboard__charts'>
           <BarChart cellTowers={cellTowers} />
           <PieChart cellTowers={cellTowers} />
         </div>

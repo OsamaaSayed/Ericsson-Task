@@ -11,6 +11,10 @@
     @media (min-width: 900px) {
       @content;
     }
+  } @else if $size == min-desktop-up {
+    @media (min-width: 1024px) {
+      @content;
+    }
   } @else if $size == desktop-up {
     @media (min-width: 1200px) {
       @content;

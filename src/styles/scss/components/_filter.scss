@@ -5,7 +5,12 @@
 
   &__form {
     display: flex;
+    flex-direction: column;
     gap: 1.6rem;
+
+    @include a.for-size(min-desktop-up) {
+      flex-direction: row;
+    }
   }
 
   &__group {
@@ -19,6 +24,16 @@
     }
   }
 
+  &__elements {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    @include a.for-size(min-desktop-up) {
+      flex-direction: row;
+    }
+  }
+
   &__input,
   &__select {
     width: 100%;
@@ -29,13 +44,12 @@
   }
 
   &__input {
-    max-width: 40rem;
+    // max-width: 40rem;
     padding-left: 2.5rem;
   }
 
   &__clear {
     padding: 0.4rem 0.8rem;
-    margin-left: 2rem;
     border: 1px solid a.$color-border;
     border-radius: 0.4rem;
     min-height: 3rem;

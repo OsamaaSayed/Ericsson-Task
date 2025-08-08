@@ -5,6 +5,15 @@
   flex-direction: column;
   background-color: a.$color-background-sidebar;
 
+
+  @include a.for-size(tablet-portrait-up) {
+    min-width: 16rem;
+  }
+
+  @include a.for-size(min-desktop-up) {
+    min-width: 20rem;
+  }
+
   &__header {
     padding: 0.8rem;
   }

@@ -36,73 +36,75 @@ const Filter = ({ filters, onFilterChange, onClearFilters }: FilterProps) => {
           </div>
         </div>
 
-        <div className='filter__group'>
-          <div className='u-flex u-items-center u-gap-sm'>
-            <FilterIcon />
-            <label htmlFor='city'>Filter By City</label>
+        <div className='filter__elements'>
+          <div className='filter__group'>
+            <div className='u-flex u-items-center u-gap-sm'>
+              <FilterIcon />
+              <label htmlFor='city'>Filter By City</label>
+            </div>
+
+            <select
+              id='city'
+              name='city'
+              className='filter__select u-cursor-pointer'
+              value={filters.city}
+              onChange={(e) => onFilterChange(e)}
+            >
+              <option value='all'>All</option>
+              <option value='cairo'>Cairo</option>
+              <option value='alexandria'>Alexandria</option>
+              <option value='hurghada'>Hurghada</option>
+              <option value='luxor'>Luxor</option>
+            </select>
           </div>
 
-          <select
-            id='city'
-            name='city'
-            className='filter__select u-cursor-pointer'
-            value={filters.city}
-            onChange={(e) => onFilterChange(e)}
-          >
-            <option value='all'>All</option>
-            <option value='cairo'>Cairo</option>
-            <option value='alexandria'>Alexandria</option>
-            <option value='hurghada'>Hurghada</option>
-            <option value='luxor'>Luxor</option>
-          </select>
-        </div>
+          <div className='filter__group'>
+            <div className='u-flex u-items-center u-gap-sm'>
+              <FilterIcon />
+              <label htmlFor='network'>Filter By Network</label>
+            </div>
 
-        <div className='filter__group'>
-          <div className='u-flex u-items-center u-gap-sm'>
-            <FilterIcon />
-            <label htmlFor='network'>Filter By Network</label>
+            <select
+              id='network'
+              name='network'
+              className='filter__select u-cursor-pointer'
+              value={filters.network}
+              onChange={(e) => onFilterChange(e)}
+            >
+              <option value='all'>All</option>
+              <option value='4G'>4G</option>
+              <option value='5G'>5G</option>
+            </select>
           </div>
 
-          <select
-            id='network'
-            name='network'
-            className='filter__select u-cursor-pointer'
-            value={filters.network}
-            onChange={(e) => onFilterChange(e)}
-          >
-            <option value='all'>All</option>
-            <option value='4G'>4G</option>
-            <option value='5G'>5G</option>
-          </select>
-        </div>
+          <div className='filter__group'>
+            <div className='u-flex u-items-center u-gap-sm'>
+              <FilterIcon />
+              <label htmlFor='status'>Filter By Status</label>
+            </div>
 
-        <div className='filter__group'>
-          <div className='u-flex u-items-center u-gap-sm'>
-            <FilterIcon />
-            <label htmlFor='status'>Filter By Status</label>
+            <select
+              id='status'
+              name='status'
+              className='filter__select u-cursor-pointer'
+              value={filters.status}
+              onChange={(e) => onFilterChange(e)}
+            >
+              <option value='all'>All</option>
+              <option value='active'>Active</option>
+              <option value='offline'>Offline</option>
+            </select>
           </div>
 
-          <select
-            id='status'
-            name='status'
-            className='filter__select u-cursor-pointer'
-            value={filters.status}
-            onChange={(e) => onFilterChange(e)}
+          <button
+            type='button'
+            className='filter__clear u-flex u-items-center u-gap-xs'
+            onClick={onClearFilters}
           >
-            <option value='all'>All</option>
-            <option value='active'>Active</option>
-            <option value='offline'>Offline</option>
-          </select>
+            <CircleXIcon />
+            Clear Filters
+          </button>
         </div>
-
-        <button
-          type='button'
-          className='filter__clear u-flex u-items-center u-gap-xs'
-          onClick={onClearFilters}
-        >
-          <CircleXIcon />
-          Clear Filters
-        </button>
       </form>
     </div>
   );
