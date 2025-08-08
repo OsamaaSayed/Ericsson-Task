@@ -12,7 +12,7 @@ const Dashboard = () => {
         <SummaryCardList cellTowers={cellTowers} />
 
         <div className='u-flex u-gap-lg'>
-          <BarChart />
+          <BarChart cellTowers={cellTowers} />
           <PieChart />
         </div>
 
